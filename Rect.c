@@ -1,34 +1,32 @@
 #include "Rect.h"
 
+static Rect *this;
+
 struct c_priv {
-    int second;
-    int thrid;
+    int width;
+    int height;
 };
 
-contrived * dmp_contrived_new(int first, int second, int third) {
-    contrived * working = malloc(sizeof(contrived));
-    working->first = first;
+Rect * new_rect(int width, int height) {
+    Rect * working = malloc(sizeof(Rect));
+    working->m_area = &m_area;
     working->priv = malloc(sizeof(struct c_priv));
-    working->priv->second = second;
-    working->priv->thrid = third;
+    working->priv->width = width;
+    working->priv->height = height;
+    this = working;
     return working;
 }
 
-void dmp_contrived_free(contrived * to_free) {
+void free_rect(Rect * to_free) {
     free(to_free->priv);
     free(to_free);
 }
 
-int dmp_contrived_sum(contrived * ths) {
-    return ths->first + 
-                    ths->priv->second + 
-                    ths->priv->thrid;
+int area(Rect * ths) {
+    return ths->priv->width * ths->priv->height; 
+}
+
+int m_area() {
+    return this->priv->width * this->priv->height;
 }
     
-int dmp_contrived_get_second(contrived * ths) {
-    return ths->priv->second;
-}
-    
-void dmp_contrived_set_second(contrived * ths, int to_set) {
-    ths->priv->second = to_set;
-}

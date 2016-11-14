@@ -1,19 +1,17 @@
 #ifndef HEADER_FILE
 #define HEADER_FILE
 
-typedef struct _contrived {
-    int first;
+typedef struct Rect {
     struct c_priv * priv;
-} contrived;
+    int (*m_area)();
+} Rect;
     
-contrived * dmp_contrived_new(int first, int second, int third);
+Rect * new_rect(int width, int height);
 
-void dmp_contrived_free(contrived * to_free);
+void free_rect(Rect * to_free);
     
-int dmp_contrived_sum(contrived * ths);
+int area(Rect * ths);
+
+int m_area();
     
-int dmp_contrived_get_second(contrived * ths);
-
-void dmp_contrived_set_second(contrived * ths, int to_set);
-
 #endif
