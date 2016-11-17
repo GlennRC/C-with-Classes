@@ -1,7 +1,8 @@
 #include "Rect.h"
 
-static Rect *this;
+Rect *this;
 
+//The private portion of the class
 struct c_priv {
     int width;
     int height;
@@ -28,5 +29,4 @@ int area(Rect * ths) {
 
 int m_area() {
     return this->priv->width * this->priv->height;
-}
-    
+}   
