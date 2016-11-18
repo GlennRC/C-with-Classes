@@ -1,9 +1,17 @@
-#include "Rect.h"
+#ifndef HEADER_FILE
+#define HEADER_FILE
 
-int radius;
+typedef struct Rect {
+    struct c_priv * priv;
+    int (*m_area)();
+} Rect;
 
-Circle *new_circle(int radias) {
-    Circle *c = malloc(sizeof(Circle));
-    
+Rect * new_rect(int width, int height);
 
-}
+void free_rect(Rect * to_free);
+
+int area(Rect * ths);
+
+int m_area();
+
+#endif

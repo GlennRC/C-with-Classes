@@ -24,9 +24,9 @@ void free_rect(Rect * to_free) {
 }
 
 int area(Rect * ths) {
-    return ths->priv->width * ths->priv->height; 
+    return ths->priv->width * ths->priv->height;
 }
 
 int m_area() {
     return this->priv->width * this->priv->height;
-}   
+}
