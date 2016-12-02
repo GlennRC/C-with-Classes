@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "Rect.h"
+#include "Cir.h"
 
 int main() {
 

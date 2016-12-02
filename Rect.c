@@ -18,7 +18,7 @@ Rect * new_rect(int width, int height) {
     return working;
 }
 
-void free_rect(Rect * to_free) {
+void destructor(Rect * to_free) {
     free(to_free->priv);
     free(to_free);
 }
