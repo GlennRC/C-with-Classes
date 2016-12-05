@@ -8,10 +8,5 @@ typedef struct Rect {
 
 Rect * new_rect(int width, int height);
 
-void destructor(Rect * to_free);
-
-int area(Rect * ths);
-
-int m_area();
 
 #endif

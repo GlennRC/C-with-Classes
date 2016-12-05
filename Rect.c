@@ -1,6 +1,6 @@
 #include "Rect.h"
 
-Rect *this;
+static Rect *this;
 
 //The private portion of the class
 struct c_priv {

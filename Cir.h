@@ -8,11 +8,7 @@ typedef struct Cir {
 
 Cir * new_cir(int radius);
 
-extern "C" {
-  void destructor(Cir * to_free);
+int m_area();
 
-  int area(Cir * ths);
 
-  int m_area();
-}
 #endif
