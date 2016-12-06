@@ -1,17 +1,17 @@
-#ifndef STACKCLASS_H
-#define STACKCLASS_H
-#include <stdio.h>
-#define TRUE 1
-#define FALSE 2
+#ifndef STACK_H
+#define STACK_H
 
 typedef struct Stack {
-    struct c_priv * priv;
-    int (*push)(int);
-    int (*pop)();
-    int (*isEmpty)();
-    int (*isFull)();
+  //Public
+  int (*push)(int);
+  int (*pop)();
+  int (*isEmpty)();
+  int (*isFull)();
+
+  struct c_priv * priv;
 } Stack;
 
 Stack* new_stack(int size);
+void del_stack();
 
 #endif

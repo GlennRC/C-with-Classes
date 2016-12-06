@@ -1,4 +1,6 @@
 #include "MyStack.h"
+#define TRUE 1
+#define FALSE 0
 
 static Stack *this;
 
@@ -60,4 +62,9 @@ Stack * new_stack(int size) {
     this->isFull = isFull;
 
     return this;
+}
+
+void del_stack(Stack* s) {
+  free(s->priv);
+  free(s);
 }

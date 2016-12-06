@@ -1,45 +1,42 @@
-#include<iostream>
-#include<cstdlib>
-#define default_value 10
+#include <cstdlib>
+#include <iostream>
 using namespace std;
 
-template< class T > class Stack {
+class Stack {
   public:
-    Stack(int = default_value); //default constructor
-    ~Stack() {                  //destructor
+    Stack(int size);
+    ~Stack() {
       delete [] values;
     }
-    bool push( T );
-    T pop();
-    int top();
+    bool push(int val);
+    int pop();
     bool isEmpty();
     bool isFull();
 
   private:
     int size;
-    T *values;
+    int *values;
     int index;
 };
 
-template< class T > Stack<T>::Stack(int x):
-    size(x),
-    values(new T[size]),
+Stack::Stack(int size): //const members
+    size(size),
+    values(new int[size]),
     index(-1) {}
 
-template< class T > bool Stack<T>::push(T x)
-{
+bool Stack::push(int val) {
     bool b = 0;
-    if(!Stack<T>::isFull()) {
+    if(!Stack::isFull()) {
       index += 1;
-      values[index] = x;
+      values[index] = val;
       b = 1;
     }
     return b;
 }
 
-template< class T > T Stack<T>::pop() {
-    T val = -1;
-    if(!Stack<T>::isEmpty()) {
+int Stack::pop() {
+    int val = -1;
+    if(!Stack::isEmpty()) {
       val = values[index];
       index -=  1;
     }
@@ -47,28 +44,16 @@ template< class T > T Stack<T>::pop() {
       cerr << "Stack is Empty : ";
 
     return val;
-
 }
 
-template< class T > int Stack<T>::top() {
-  T val = -1;
-  if(!Stack<T>::isEmpty()) {
-    val = values[index];
-  }
-  else {
-    cerr << "Stack is Empty : ";
-  }
-  return val;
-}
-
-template< class T > bool Stack<T>::isFull() {
-    if((index + 1) == size )
+bool Stack::isFull() {
+    if((index + 1) == size)
       return 1;
     else
       return 0;
 }
 
-template< class T > bool Stack<T>::isEmpty() {
+bool Stack::isEmpty() {
     if( index  == -1 )//is empty
       return 1;
     else
