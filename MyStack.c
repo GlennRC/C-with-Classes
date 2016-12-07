@@ -1,10 +1,6 @@
 #include "MyStack.h"
-#include <stdio.h>
-#define TRUE 1
-#define FALSE 0
 
 static Stack *this;
-
 //The private portion of the class
 struct c_priv {
     int size;
@@ -44,9 +40,6 @@ int pop() {
     val = this->priv->values[this->priv->index];
     this->priv->index -=  1;
   }
-  else
-    printf("\n****STACK IS EMPTY****\n");
-
   return val;
 }
 
