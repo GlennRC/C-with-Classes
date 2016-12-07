@@ -1,4 +1,7 @@
-#ifndef STACK_H
-#define STACK_H
+#ifndef CLASS_H
+#define CLASS_H
+#include <stdlib.h>
+
+#define class typedef struct
 
 #endif

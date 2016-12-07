@@ -1,7 +1,10 @@
 #ifndef STACK_H
 #define STACK_H
+#define new new_stack
+#define delete del_stack
+#include "Class.h"
 
-typedef struct Stack {
+class Stack {
   //Public
   int (*push)(int);
   int (*pop)();
@@ -11,7 +14,7 @@ typedef struct Stack {
   struct c_priv * priv;
 } Stack;
 
-Stack* new_stack(int size);
-void del_stack();
+Stack* new(int size);
+void delete();
 
 #endif

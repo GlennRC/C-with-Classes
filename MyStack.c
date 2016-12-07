@@ -1,4 +1,5 @@
 #include "MyStack.h"
+#include <stdio.h>
 #define TRUE 1
 #define FALSE 0
 
@@ -10,6 +11,22 @@ struct c_priv {
     int *values;
     int index;
 };
+
+int isEmpty() {
+  if (this->priv->index == -1) {
+    return TRUE;
+  }
+  else
+    return FALSE;
+}
+
+int isFull() {
+  if (this->priv->index+1 == this->priv->size) {
+    return TRUE;
+  }
+  else
+    return FALSE;
+}
 
 int push(int val) {
   int b = 0;
@@ -31,22 +48,6 @@ int pop() {
     printf("\n****STACK IS EMPTY****\n");
 
   return val;
-}
-
-int isEmpty() {
-  if (this->priv->index == -1) {
-    return TRUE;
-  }
-  else
-    return FALSE;
-}
-
-int isFull() {
-  if (this->priv->index+1 == this->priv->size) {
-    return TRUE;
-  }
-  else
-    return FALSE;
 }
 
 Stack * new_stack(int size) {
