@@ -1,4 +1,5 @@
 #include "MyStack.h"
+#include <stdio.h>
 
 static Stack *this;
 //The private portion of the class
@@ -8,7 +9,7 @@ struct c_priv {
     int index;
 };
 
-int isEmpty() {
+static int isEmpty() {
   if (this->priv->index == -1) {
     return TRUE;
   }
@@ -16,7 +17,7 @@ int isEmpty() {
     return FALSE;
 }
 
-int isFull() {
+static int isFull() {
   if (this->priv->index+1 == this->priv->size) {
     return TRUE;
   }
@@ -24,7 +25,7 @@ int isFull() {
     return FALSE;
 }
 
-int push(int val) {
+static int push(int val) {
   int b = 0;
   if(isFull() == FALSE) {
     this->priv->index += 1;
@@ -34,7 +35,7 @@ int push(int val) {
   return b;
 }
 
-int pop() {
+static int pop() {
   int val = -1;
   if(isEmpty() == FALSE) {
     val = this->priv->values[this->priv->index];

@@ -15,6 +15,6 @@ class Stack {
 } Stack;
 
 Stack* new_stack(int size);
-void del_stack(Stack* s)
+void del_stack(Stack* s);
 
 #endif
